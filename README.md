@@ -15,10 +15,10 @@ Automated data cleaning pipeline for Hand Hygiene audit data, connected to a Pow
 - SmartSheet
 
 # SmartSheet Link
-[Click here to access the SmartSheet](PASTE YOUR SMARTSHEET LINK HERE)
+ SMARTSHEET LINK 
+ https://app.smartsheet.com/b/form/019c89d7741278a4be147bf18af4e68b
 
 # Power BI Dashboard
-[Click here to view the Dashboard](PASTE YOUR POWER BI LINK HERE)
 
 #  How to Update Data
 1. Open the Colab notebook
