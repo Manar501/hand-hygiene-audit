@@ -1,4 +1,4 @@
-# Hand Hygiene Audit Project
+# Hand Hygiene Audit 
 
 ## Overview
 This project automates the Hand Hygiene compliance audit workflow — from data collection to dashboard reporting. It replaces manual data entry and cleaning with a streamlined pipeline that saves time and reduces errors.
