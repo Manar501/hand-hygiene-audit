@@ -93,89 +93,36 @@ A 10-page Power BI dashboard connected via Gateway that refreshes automatically 
 
 ---
 
-## Dashboard Pages (10 Pages)
+## Dashboard Overview (10 Pages)
 
 ### Page 1: Title Page
 **COMPLIANCE OF HAND HYGIENE — First Quarter**
 
-### Page 2: Overall Hospital Compliance
-| Visual | Details |
-|--------|---------|
-| KPI Card | Total Observations: Met vs Total — **5,699 / 6,486** |
-| KPI Card | Overall Compliance — **87.87%** |
-| Donut Chart | Hand Hygiene Action Distribution: Hand Rubbing **58.94%**, Hand Washing **28.92%**, Missed **6.61%**, Missed/Gloves |
-| Bar Chart | Non-Compliance by WHO 5 Moments: bef-pat **332 (42.19%)**, aft.p.surr **259 (32.91%)**, aft-pat **112 (14.23%)**, bef-asept **59 (7.5%)** |
-| Horizontal Bar | All 24 departments ranked from **97% (MMW, PICU)** down to **60% (NBN, Specialty Clinic)** |
+### Page 2-3: Overall Hospital Compliance
+- **5,699 / 6,486** total observations — **87.87%** compliance
+- Hand Hygiene Action distribution (Donut Chart)
+- Non-Compliance by WHO 5 Moments (Bar Chart)
+- All **24 departments** ranked by compliance (Horizontal Bar)
+- Worker category comparison: Nurses **90%**, Others **89%**, Doctors **85%**
 
-### Page 3: Healthcare Worker Category Analysis
-| Visual | Details |
-|--------|---------|
-| Grouped Bar Chart | Nurses **90%**, Others **89%**, Doctors **85%** |
-| Donut Chart | Action distribution per category |
-| Bar Chart | Non-Compliance by WHO 5 Moments per category |
+### Pages 4-5: Critical Care Units
+- **1,825 / 2,186** observations — **83.49%** compliance
+- 6 units: PICU, CICU, NICU/SCBU, AICU/IMCU, CCU, SICU
+- Highest: PICU **97%** | Lowest: SICU **63%**
 
-### Pages 4-5: Critical Care Units Dashboard
-| Metric | Value |
-|--------|-------|
-| Total Observations | **1,825 / 2,186** |
-| Overall Compliance | **83.49%** |
-| PICU | **97%** |
-| CICU | **96%** |
-| NICU/SCBU | **89%** |
-| AICU / IMCU | **78%** |
-| CCU | **71%** |
-| SICU | **63%** |
-| Nurses | **88%** |
-| Others | **80%** |
-| Doctors | **79%** |
+### Pages 6-7: In-patient Care Areas
+- **2,469 / 2,698** observations — **91.51%** compliance
+- 11 departments from MMW **97%** to NBN **60%**
 
-### Pages 6-7: In-patient Care Areas Dashboard
-| Metric | Value |
-|--------|-------|
-| Total Observations | **2,469 / 2,698** |
-| Overall Compliance | **91.51%** |
-| MMW | **97%** |
-| OR | **95%** |
-| CW | **95%** |
-| FSW | **94%** |
-| PW | **92%** |
-| FMW | **90%** |
-| OB | **85%** |
-| L&D | **79%** |
-| MS1 | **78%** |
-| MSW | **74%** |
-| NBN | **60%** |
-| Others | **95%** |
-| Nurses | **91%** |
-| Doctors | **90%** |
+### Pages 8-9: Out-patient Care Areas
+- **798 / 886** observations — **90.07%** compliance
+- 6 departments from Endoscopy **96%** to Specialty Clinic **60%**
 
-### Pages 8-9: Out-patient Care Areas Dashboard
-| Metric | Value |
-|--------|-------|
-| Total Observations | **798 / 886** |
-| Overall Compliance | **90.07%** |
-| Endoscopy | **96%** |
-| Dental | **95%** |
-| FMC | **91%** |
-| HHC | **88%** |
-| DAY CASE | **85%** |
-| Specialty Clinic | **60%** |
-| Others | **92%** |
-| Doctors | **90%** |
-| Nurses | **88%** |
-
-### Page 10: Accident & Emergency Unit Dashboard
-| Metric | Value |
-|--------|-------|
-| Total Observations | **607 / 716** |
-| Overall Compliance | **84.78%** |
-| Nurses | **90%** |
-| Others | **79%** |
-| Doctors | **71%** |
-| Top Non-Compliance Moment | Before contact with patient — **47.71%** |
-
----
-
+### Page 10: Accident & Emergency Unit
+- **607 / 716** observations — **84.78%** compliance
+- Nurses **90%**, Others **79%**, Doctors **71%**
+- Top non-compliance moment: Before contact with patient **47.71%**
+  
 ## Advanced DAX Measures
 
 We engineered custom DAX measures to give hospital leadership actionable, drill-down insights — not just basic counts:
@@ -183,7 +130,7 @@ We engineered custom DAX measures to give hospital leadership actionable, drill-
 ### Overall Compliance Percentage
 ```dax
 Compliance% = 
-DIVIDE(
+DIVIDE 
     CALCULATE(COUNTROWS('JAN 26'), 
         'JAN 26'[Hand Hygiene Action] IN {"Hand Rubbing", "Hand Washing"}),
     COUNTROWS('JAN 26'),
@@ -279,13 +226,11 @@ The data collection form was designed with frontline staff in mind:
 | Step | Description |
 |------|-------------|
 | Column Restructuring | Combines 15 repeated columns (Worker Type 1-5, Opportunity 1-5, HH Action 1-5) into 3 single columns stacked as rows |
-| Date Validation | Converts dates and deletes any row with missing date — prevents data contamination from forward filling incorrect dates |
-| Forward Fill | Fills empty Department, Time, Worker Type, Opportunity, and Action fields from the row above |
+| Date Validation | Deletes any row with missing date — entire audit removed if no date exists |
 | Whitespace Cleaning | Strips leading/trailing spaces and standardizes null values |
 | Abbreviation Mapping | Converts short codes to WHO 5 Moments full text (bef-pat → Before contact with the patient) |
 | Smart Merge | Keeps all historical data intact; only adds rows with new dates to prevent duplication |
 | Automatic Backup | Creates a dated backup file before every update |
-
 ---
 
 ## Technical Stack
@@ -377,5 +322,5 @@ SAVE_PATH = r'YOUR_FILE_PATH\jan.xlsx'        # Path where Power BI reads the fi
 ---
 
 ## Links
-- **SmartSheet**: Available upon request (contains hospital data)
+- **SmartSheet**: Available upon request 
 - **Power BI Dashboard**: [View the live dashboard]([https://seuedu-my.sharepoint.com/personal/s200088111_seu_edu_sa/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fs200088111_seu_edu_sa%2FDocuments%2FHH%20Report.pbix&parent=%2Fpersonal%2Fs200088111_seu_edu_sa%2FDocuments&ga=1])
