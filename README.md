@@ -328,5 +328,4 @@ SAVE_PATH = r'YOUR_FILE_PATH\jan.xlsx'        # Path where Power BI reads the fi
 ---
 
 ## Links
-- **SmartSheet**: Available upon request 
--- **Power BI Dashboard**: [View the live dashboard](https://seuedu-my.sharepoint.com/personal/s200088111_seu_edu_sa/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fs200088111_seu_edu_sa%2FDocuments%2FHH%20Report.pbix&parent=%2Fpersonal%2Fs200088111_seu_edu_sa%2FDocuments&ga=1)
+- **Power BI Dashboard**: [View the live dashboard](https://seuedu-my.sharepoint.com/personal/s200088111_seu_edu_sa/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fs200088111_seu_edu_sa%2FDocuments%2FHH%20Report.pbix&parent=%2Fpersonal%2Fs200088111_seu_edu_sa%2FDocuments&ga=1)
