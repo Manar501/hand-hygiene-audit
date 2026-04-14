@@ -322,7 +322,7 @@ SAVE_PATH = r'YOUR_FILE_PATH\jan.xlsx'        # Path where Power BI reads the fi
 
 ## Authors
 - **Manar** — [GitHub Profile](https://github.com/Manar501)
-- **Norah** — Contributor
+- **Norah** — [GitHub Profile](https://github.com/Norah-Alqasem)
 
 ---
 
